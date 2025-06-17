@@ -1,0 +1,6 @@
+*
+!lib/
+lib/*
+!lib/main.dart
+!lib/pages/
+!.gitignore
