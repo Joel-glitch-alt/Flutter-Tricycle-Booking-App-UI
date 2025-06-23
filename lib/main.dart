@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowMaterialGrid: false,
-      title: 'Tricycle Booking App',
+      title: 'Tricycle Booking',
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
