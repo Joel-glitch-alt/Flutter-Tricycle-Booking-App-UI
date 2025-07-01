@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tricycle_booking_app/Pages/callScreen.dart';
 import 'package:tricycle_booking_app/Pages/forgotpassword.dart';
-import 'package:tricycle_booking_app/Pages/google.dart';
+//import 'package:tricycle_booking_app/Pages/google.dart';
 import 'package:tricycle_booking_app/Pages/landingPage.dart';
 import 'package:tricycle_booking_app/Pages/loginPage.dart';
 import 'package:tricycle_booking_app/Pages/orderRide.dart';
-import 'package:tricycle_booking_app/Pages/paymentSelection.dart';
+//import 'package:tricycle_booking_app/Pages/paymentSelection.dart';
 import 'package:tricycle_booking_app/Pages/riderChat.dart';
 import 'package:tricycle_booking_app/Pages/signUp.dart';
 import 'package:tricycle_booking_app/Pages/userProfile.dart';
