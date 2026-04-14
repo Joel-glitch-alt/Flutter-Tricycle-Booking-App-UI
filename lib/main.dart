@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => const LandingPage(),
           '/LoginPage': (context) => LoginPage(),
           '/SignUpPage': (context) => SignUpPage(),
-          '/ForgotPasswordScreen': (context) => const ForgotPasswordScreen(),
+          '/ForgotPasswordScreen': (context) => ForgotPasswordScreen(),
           '/OrderRide': (context) => const TricycleBookingPage(),
           '/CallScreen': (context) => const CallScreen(),
           '/RiderChat': (context) => const RiderChatScreen(),
