@@ -12,6 +12,7 @@ import 'package:tricycle_booking_app/providers/auth_provider.dart';
 import 'package:tricycle_booking_app/services/api_service.dart';
 import 'package:tricycle_booking_app/services/auth_service.dart';
 import 'package:tricycle_booking_app/services/storage_service.dart';
+import 'package:tricycle_booking_app/Pages/availableDrivers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,10 +47,12 @@ class MyApp extends StatelessWidget {
           '/LoginPage': (context) => LoginPage(),
           '/SignUpPage': (context) => SignUpPage(),
           '/ForgotPasswordScreen': (context) => ForgotPasswordScreen(),
-          '/OrderRide': (context) => const TricycleBookingPage(),
+          '/OrderRide': (context) => const BookingScreen(),
+          // '/OrderRide': (context) =>  TricycleBookingPage(),
           '/CallScreen': (context) => const CallScreen(),
           '/RiderChat': (context) => const RiderChatScreen(),
           '/UserProfileScreen': (context) => UserProfileScreen(),
+          '/AvailableDrivers': (context) => AvailableDriversScreen(),
         },
       ),
     );
