@@ -9,6 +9,7 @@ import 'package:tricycle_booking_app/Pages/riderChat.dart';
 import 'package:tricycle_booking_app/Pages/signUp.dart';
 import 'package:tricycle_booking_app/Pages/userProfile.dart';
 import 'package:tricycle_booking_app/providers/auth_provider.dart';
+import 'package:tricycle_booking_app/providers/booking_provider.dart';
 import 'package:tricycle_booking_app/providers/driver_provider.dart';
 import 'package:tricycle_booking_app/services/api_service.dart';
 import 'package:tricycle_booking_app/services/auth_service.dart';
@@ -40,6 +41,10 @@ class MyApp extends StatelessWidget {
         // ✅ DriverProvider registered so BookingScreen & AvailableDriversScreen can use it
         ChangeNotifierProvider(
           create: (_) => DriverProvider(),
+        ),
+        ChangeNotifierProvider(
+          // ← add this
+          create: (_) => BookingProvider(),
         ),
       ],
       child: MaterialApp(
