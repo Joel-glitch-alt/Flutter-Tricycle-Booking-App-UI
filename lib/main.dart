@@ -16,13 +16,28 @@ import 'package:tricycle_booking_app/services/auth_service.dart';
 import 'package:tricycle_booking_app/services/storage_service.dart';
 import 'package:tricycle_booking_app/Pages/availableDrivers.dart';
 import 'package:tricycle_booking_app/Pages/splashScreen.dart';
+import 'package:tricycle_booking_app/services/connectivity_service.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  // ✅ Now _connectivityService is defined here
+  final ConnectivityService _connectivityService = ConnectivityService();
+
+  @override
+  void dispose() {
+    _connectivityService.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +47,11 @@ class MyApp extends StatelessWidget {
           create: (_) {
             final storageService = StorageService();
             final apiService = ApiService(storageService);
-            return AuthProvider(
-              AuthService(apiService),
-              storageService,
-            );
+            return AuthProvider(AuthService(apiService), storageService);
           },
         ),
-        // ✅ DriverProvider registered so BookingScreen & AvailableDriversScreen can use it
-        ChangeNotifierProvider(
-          create: (_) => DriverProvider(),
-        ),
-        ChangeNotifierProvider(
-          // ← add this
-          create: (_) => BookingProvider(),
-        ),
+        ChangeNotifierProvider(create: (_) => DriverProvider()),
+        ChangeNotifierProvider(create: (_) => BookingProvider()),
       ],
       child: MaterialApp(
         debugShowMaterialGrid: false,
@@ -63,6 +69,10 @@ class MyApp extends StatelessWidget {
           '/RiderChat': (context) => const RiderChatScreen(),
           '/UserProfileScreen': (context) => UserProfileScreen(),
           '/AvailableDrivers': (context) => AvailableDriversScreen(),
+        },
+        builder: (context, child) {
+          _connectivityService.init(context); // ✅ now works
+          return child!;
         },
       ),
     );
